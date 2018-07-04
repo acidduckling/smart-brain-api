@@ -1,0 +1,30 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to Remote",
+      "address": "127.0.0.1",
+      "port": 9229,
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/c/Users/acid_/Source/JuniorToSenior/smart-brain/smart-brain-api",
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${workspaceFolder}\\server.js",
+      "runtimeExecutable": "npm",
+      "port": 9229,
+      "runtimeArgs": [
+        "run-script",
+        "debug"
+      ],
+      "useWSL": true
+    }
+  ]
+}
