@@ -7,6 +7,7 @@ services:
     build: ./
     working_dir: /usr/src/app
     environment:
+      REDIS_HOST: redis
       # POSTGRES_URI: postgres://${DB_USER}:${DB_PASSWORD}@postgres:5432/
       DB_HOST: postgres
       DB_NAME: ${DB_NAME}
@@ -18,7 +19,8 @@ services:
       - ./:/usr/src/app
       # - yarn-cache:/usr/local/share/.cache/yarn/v1/
     networks: 
-      - database
+      - nw_database
+      - nw_redis
 
   # Postgres Database
   postgres:
@@ -35,11 +37,23 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
     networks: 
-      - database
+      - nw_database
+
+  # Redis
+  redis:
+    container_name: backend-redis
+    hostname: redis
+    image: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - nw_redis
+
 
 volumes: 
   db-data:
   # yarn-cache:
 
 networks: 
-  database:
+  nw_database:
+  nw_redis:

@@ -61,4 +61,7 @@ docker-compose up --build
 
 # run interactive terminal for container in docker-compose file
 docker-compose exec [containerName] /bin/bash
+
+# Run interactive redis
+docker-compose exec redis redis-cli
 ```
