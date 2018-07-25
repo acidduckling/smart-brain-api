@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
 const morgan = require('morgan');
+const compression = require('compression');
 
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
@@ -27,6 +28,7 @@ const app = express();
 // Add middleware
 app.use(morgan('combined'))
 app.use(cors())
+app.use(compression);
 app.use(bodyParser.json());
 
 // register routes
