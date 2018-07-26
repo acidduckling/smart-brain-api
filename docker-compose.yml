@@ -5,16 +5,20 @@ services:
   api:
     container_name: backend-api
     build: ./
+    entrypoint: yarn debug
     working_dir: /usr/src/app
     environment:
+      WEB_PORT: 3005
       REDIS_HOST: redis
-      # POSTGRES_URI: postgres://${DB_USER}:${DB_PASSWORD}@postgres:5432/
+      # POSTGRES_URI: postgres://postgres:${DB_PASSWORD}@postgres:5432/
       DB_HOST: postgres
-      DB_NAME: ${DB_NAME}
-      DB_USER: ${DB_USER}
+      DB_NAME: postgres
+      DB_USER: postgres
       DB_PASSWORD: ${DB_PASSWORD}
     ports:
-      - "${PORT}:${PORT}"
+      - "3005:3005"
+      # NODE DEBUG PORTS:
+      - "9222:9222"
     volumes:
       - ./:/usr/src/app
       # - yarn-cache:/usr/local/share/.cache/yarn/v1/
@@ -28,8 +32,8 @@ services:
     build: ./sql/
     environment:
       POSTGRES_HOST: postgres
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       PGDATA: /var/lib/postgresql/data/pgdata
     ports: 
@@ -48,7 +52,6 @@ services:
       - "6379:6379"
     networks:
       - nw_redis
-
 
 volumes: 
   db-data:

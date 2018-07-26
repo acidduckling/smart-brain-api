@@ -28,7 +28,7 @@ const app = express();
 // Add middleware
 app.use(morgan('combined'))
 app.use(cors())
-app.use(compression);
+app.use(compression());
 app.use(bodyParser.json());
 
 // register routes
@@ -41,6 +41,6 @@ app.put('/image', auth.requireAuth, (req, res) => { image.handleImage(req, res, 
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res)})
 
 // Listen on configured port
-app.listen(process.env.PORT, ()=> {
-  console.log(`app is running on port ${process.env.PORT}`);
+app.listen(process.env.WEB_PORT, ()=> {
+  console.log(`app is running on port ${process.env.WEB_PORT}`);
 })

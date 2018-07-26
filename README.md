@@ -46,6 +46,9 @@ yarn start
 }
 ```
 
+## Debugging in VS Code
+**Docker - Node:Nodemon** configuration has been added to launch.json file to enable attaching to the Nodemon server in the Docker container for the **smart-brain-api** project.
+
 ## Updating .env file
 
 When adding new variables ot the .env file, ensure it does not contain any sensitive data and then run the following to track new changes:

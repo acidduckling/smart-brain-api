@@ -7,11 +7,12 @@
     {
       "type": "node",
       "request": "attach",
-      "name": "Attach to Remote",
-      "address": "127.0.0.1",
-      "port": 9229,
+      "name": "Docker - Node:Nodemon",
+      "port": 9222,
+      "protocol": "auto",
       "localRoot": "${workspaceFolder}",
-      "remoteRoot": "/c/Users/acid_/Source/JuniorToSenior/smart-brain/smart-brain-api",
+      "remoteRoot": "/usr/src/app",
+      "restart": true
     },
     {
       "type": "node",
