@@ -2,29 +2,13 @@
 
 Final project for Udemy course
 
-1.  Clone the following repos (git clone REPO_URL):
+1.  Clone the following repos to a folder called smart-brain on your local machine (git clone REPO_URL):
 
     - https://github.com/acidduckling/smart-brain-api
     - https://github.com/acidduckling/smart-brain-client
     - https://github.com/acidduckling/smart-brain-serverless (only required if you want to integrate AWS Lambda functions)
 
-2.  Start the backend services with docker-compose:
-
-```bash
-docker-compose up
-```
-
-3.  Setup the AWS Lambda function (follow the README.md file in the smart-brain-serverless repo)
-
-4.  Update the client .env file with the correct endpoint for the AWS rank handler (the endpoint should be displayed to you when you run serverless command - see the serverless readme)
-
-5.  Start the front end client
-
-```bash
-yarn start
-```
-
-4.  For a nice working environment is VS Code, save each of the repos to a folder called smartbrain, and create a **smart-brain.code-workspace** file with the following config (linting is disabled because much of the supplied course code fails many best practices unfortunately, and I am too lazy to correct it)!:
+2.  For a nice multi-project workspace in VS Code, create a **smart-brain.code-workspace** file in the top level smart-brain folder you created in step 1. Add the following config (linting is disabled because much of the supplied course code fails many best practices unfortunately, and I am too lazy to correct it)!:
 
 ```json
 {
@@ -46,6 +30,22 @@ yarn start
     }
   }
 }
+```
+
+3.  Update the client .env file with the correct endpoint for the AWS rank handler (the endpoint should be displayed to you when you run serverless command - see the serverless readme)
+
+4.  Start the backend services with docker-compose:
+
+```bash
+docker-compose up
+```
+
+5.  Setup the AWS Lambda function (follow the README.md file in the smart-brain-serverless repo)
+
+6.  Start the front end client for the **smart-brain-client** project
+
+```bash
+yarn start
 ```
 
 ## Debugging Node in Docker Container via VS Code
